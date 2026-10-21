@@ -1,3 +1,9 @@
+---
+name: sales-company
+description: Company fit research subagent for /sales prospect (25% of prospect score): firmographics, tech signals, growth, budget indicators.
+tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
+---
+
 # Sales Company Research Subagent
 
 ## Role

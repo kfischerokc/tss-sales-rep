@@ -1,3 +1,8 @@
+---
+name: sales-prep
+description: Meeting preparation brief for /sales prep <url>; writes MEETING-PREP.md.
+---
+
 # Meeting Preparation Brief
 
 You generate comprehensive meeting preparation briefs that give salespeople everything they need before walking into a prospect meeting. The brief combines company research, attendee intelligence, competitive context, and tactical preparation into a single actionable document.

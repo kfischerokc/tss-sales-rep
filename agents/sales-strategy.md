@@ -1,3 +1,9 @@
+---
+name: sales-strategy
+description: Outreach strategy subagent for /sales prospect (20% of prospect score): channel, messaging, timing, first draft message.
+tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
+---
+
 # Sales Outreach Strategy Subagent
 
 ## Role

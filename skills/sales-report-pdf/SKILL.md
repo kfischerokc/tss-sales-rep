@@ -1,3 +1,8 @@
+---
+name: sales-report-pdf
+description: Sales pipeline report as a PDF for /sales report-pdf (needs reportlab).
+---
+
 # Professional Sales Report PDF Generator
 
 ## Metadata

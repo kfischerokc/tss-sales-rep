@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================================
-# AI Sales Team — Claude Code Skills Installer
+# TSS Sales Rep (based on AI Sales Team) — Claude Code Skills Installer
 # 14 Skills · 5 Agents · 4 Scripts · PDF
 # ============================================================================
 set -e
@@ -25,7 +25,6 @@ echo ""
 # ---------------------------------------------------------------------------
 # Detect script directory (handle both local and curl | bash)
 # ---------------------------------------------------------------------------
-GITHUB_REPO="zubair-trabzada/ai-sales-team-claude"
 TEMP_DIR=""
 
 if [ -n "${BASH_SOURCE[0]}" ] && [ "${BASH_SOURCE[0]}" != "bash" ]; then
@@ -39,24 +38,20 @@ if [ -n "${BASH_SOURCE[0]}" ] && [ "${BASH_SOURCE[0]}" != "bash" ]; then
 fi
 
 if [ -z "${SCRIPT_DIR:-}" ] || [ ! -d "${SOURCE_DIR:-}" ]; then
-    echo -e "${YELLOW}Cloning from GitHub...${NC}"
-    TEMP_DIR=$(mktemp -d)
-    if command -v git &>/dev/null; then
-        git clone --depth 1 "https://github.com/$GITHUB_REPO.git" "$TEMP_DIR/repo" 2>/dev/null
-        SOURCE_DIR="$TEMP_DIR/repo"
-    else
-        echo -e "${RED}Error: git is required for remote installation.${NC}"
-        echo "Install git or run install.sh from a local clone."
-        exit 1
-    fi
-    echo -e "${GREEN}Cloned successfully.${NC}"
+    echo -e "${RED}Error: run this from a clone of the TSS sales rep repo:${NC} git clone <repo> && cd <repo> && ./install.sh"
+    exit 1
 fi
 
 # ---------------------------------------------------------------------------
 # Target directories
 # ---------------------------------------------------------------------------
-SKILLS_DIR="$HOME/.claude/skills"
-AGENTS_DIR="$HOME/.claude/agents"
+# Default: user-level (~/.claude). Use --project DIR to install into DIR/.claude instead.
+CLAUDE_DIR="$HOME/.claude"
+if [ "${1:-}" = "--project" ]; then
+    CLAUDE_DIR="$(cd "${2:?--project needs a directory}" && pwd)/.claude"
+fi
+SKILLS_DIR="$CLAUDE_DIR/skills"
+AGENTS_DIR="$CLAUDE_DIR/agents"
 
 # ---------------------------------------------------------------------------
 # Check for Claude Code
@@ -178,6 +173,13 @@ done
 # Check Python dependencies
 # ---------------------------------------------------------------------------
 echo -e "${BLUE}Checking Python environment...${NC}"
+
+if command -v python3 &>/dev/null && ! python3 -c "import reportlab, bs4" 2>/dev/null; then
+    echo -e "  ${YELLOW}Installing Python dependencies (reportlab, beautifulsoup4) for this user...${NC}"
+    python3 -m pip install --user --quiet -r "$SOURCE_DIR/requirements.txt" 2>/dev/null \
+        || python3 -m pip install --user --quiet --break-system-packages -r "$SOURCE_DIR/requirements.txt" 2>/dev/null \
+        || echo -e "  ${YELLOW}⚠${NC} Could not install automatically; run: pip3 install -r requirements.txt"
+fi
 
 if command -v python3 &>/dev/null; then
     echo -e "  ${GREEN}✓${NC} Python 3 found: $(python3 --version 2>&1)"

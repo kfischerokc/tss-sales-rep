@@ -1,3 +1,8 @@
+---
+name: sales-report
+description: Sales pipeline report in Markdown for /sales report; writes SALES-REPORT.md.
+---
+
 # Sales Pipeline Report Generator
 
 ## Metadata
