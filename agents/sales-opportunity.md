@@ -1,3 +1,9 @@
+---
+name: sales-opportunity
+description: Opportunity assessment subagent for /sales prospect (20% of prospect score): BANT qualification from public signals.
+tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
+---
+
 # Sales Opportunity Assessment Subagent
 
 ## Role

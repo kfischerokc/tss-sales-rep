@@ -1,3 +1,9 @@
+---
+name: sales-contacts
+description: Contact intelligence subagent for /sales prospect (20% of prospect score): buying committee, decision makers, personalization anchors.
+tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
+---
+
 # Sales Contact Intelligence Subagent
 
 ## Role

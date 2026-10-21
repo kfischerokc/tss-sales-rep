@@ -1,3 +1,8 @@
+---
+name: sales-icp
+description: Ideal Customer Profile builder for /sales icp <description>; writes IDEAL-CUSTOMER-PROFILE.md.
+---
+
 # Ideal Customer Profile Builder
 
 ## Metadata

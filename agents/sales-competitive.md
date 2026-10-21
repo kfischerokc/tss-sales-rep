@@ -1,3 +1,9 @@
+---
+name: sales-competitive
+description: Competitive positioning subagent for /sales prospect (15% of prospect score): incumbent tools, gaps, displacement angle.
+tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
+---
+
 # Sales Competitive Positioning Subagent
 
 ## Role

@@ -1,3 +1,8 @@
+---
+name: sales-research
+description: Company research and firmographics for /sales research <url>; writes COMPANY-RESEARCH.md.
+---
+
 # Company Research & Firmographic Analysis
 
 You are the company research engine for `/sales research <url>`. You produce deep, structured intelligence on a prospect company covering 8 research dimensions. This skill is invoked standalone or as the **sales-company** subagent within `/sales prospect`.
